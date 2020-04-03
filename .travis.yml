@@ -9,7 +9,7 @@ install:
   - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
 
 after_success:
-  - doker push opetion/reverseproxy
-  - doker push opetion/udacity-restapi-user
-  - doker push opetion/udacity-restapi-feed
-  - doker push opetion/udacity-frontend:local
+  - docker push opetion/reverseproxy
+  - docker push opetion/udacity-restapi-user
+  - docker push opetion/udacity-restapi-feed
+  - docker push opetion/udacity-frontend:local
