@@ -3,7 +3,7 @@ language: minimal
 services: docker
 
 before_install:
-  - echo "DOCKER_HUB_TOKEN" | docker login -u "DOCKER_HUB_USER" --password-stdin
+  - echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USER" --password-stdin
 
 install:
   - docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
