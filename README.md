@@ -55,3 +55,39 @@ Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These fi
 ionic build
 ```
 ***
+
+## Deployment
+
+### Setup
+#### Dependencies
+- Postgres SQL
+- AWS S3
+
+#### Configure
+
+```bash 
+# Database Configurations
+export POSTGRESS_USERNAME=<database username>;
+export POSTGRESS_PASSWORD=<database password>;
+export POSTGRESS_DB=<database schema>;
+export POSTGRESS_HOST=<database address>;
+
+# AWS Configurations
+export AWS_REGION=<e.g: eu-west-1 >;
+export AWS_PROFILE=<>;
+export AWS_BUCKET=<>;
+
+# Udagrama Configurations
+export JWT_SECRET=<Random generated secret>;
+```
+
+### Docker
+To build the images:
+```bash
+docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
+```
+
+From the folder `udacity-c3-deployment/docker`it is possible to run the containers on your computer using:
+```bash
+docker-compose up
+```
