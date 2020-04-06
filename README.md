@@ -58,7 +58,7 @@ ionic build
 
 ## Deployment
 
-### Setup
+### Setup - Docker
 #### Dependencies
 - Postgres SQL
 - AWS S3
@@ -90,4 +90,42 @@ docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build -
 From the folder `udacity-c3-deployment/docker`it is possible to run the containers on your computer using:
 ```bash
 docker-compose up
+```
+
+### Setup - Kubernetes
+
+### Configure
+Everything is done in the context of `udacity-c3-deployment/k8s`
+
+The following files should be configured:
+- aws-secret.yaml;
+- env-configmap.yaml;
+- env-secret.yaml;
+
+### Startup kubernetes! 
+```bash 
+
+# Deploy Configurations!
+    kubectl apply -f aws-secret.yaml
+    kubectl apply -f env-secret.yaml
+    kubectl apply -f env-configmap.yaml
+
+# Deploy  
+# Apply Deployments!
+
+    kubectl apply -f backend-feed-deployment.yaml
+    kubectl apply -f frontend-deployment.yaml
+    kubectl apply -f backend-user-deployment.yaml
+    kubectl apply -f reverseproxy-deployment.yaml
+
+# Apply Services!
+
+    kubectl apply -f backend-feed-service.yaml
+    kubectl apply -f backend-user-service.yaml
+    kubectl apply -f frontend-service.yaml
+    kubectl apply -f reverseproxy-service.yaml
+
+# Port Forwarding!
+    kubectl port-forward service/frontend 8100:8100
+    kubectl port-forward service/reverseproxy 8080:8080
 ```
