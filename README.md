@@ -92,6 +92,12 @@ From the folder `udacity-c3-deployment/docker`it is possible to run the containe
 docker-compose up
 ```
 
+#### Docker hub images
+https://hub.docker.com/repository/docker/opetion/udacity-frontend
+https://hub.docker.com/repository/docker/opetion/udacity-restapi-feed
+https://hub.docker.com/repository/docker/opetion/udacity-restapi-user
+https://hub.docker.com/repository/docker/opetion/reverseproxy
+
 ### Setup - Kubernetes
 
 ### Configure
@@ -129,3 +135,4 @@ The following files should be configured:
     kubectl port-forward service/frontend 8100:8100
     kubectl port-forward service/reverseproxy 8080:8080
 ```
+
